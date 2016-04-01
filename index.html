@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flight demo</title>
+        <style>
+            .line-through {
+                text-decoration: line-through;
+            }
+            i {
+                display: none;
+                cursor: pointer;
+            }
+            li:hover i {
+                display: inline;
+            }
+            i:hover {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Todo App</h1>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input autocomplete="off" id="name" type="text">
+            </div>
+            <div class="form-group">
+                <button id="btn">Add</button>
+            </div>
+        </form>
+        <div>
+            <ul></ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="bundle.js"></script>
+    </body>
+</html>
