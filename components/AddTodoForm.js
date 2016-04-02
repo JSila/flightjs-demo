@@ -1,4 +1,3 @@
-import flight from 'flightjs'
 import withRedux from '../mixins/with-redux';
 import { addTodo } from '../actions'
 

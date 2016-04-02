@@ -1,4 +1,3 @@
-import flight from 'flightjs'
 import Mustache from 'mustache'
 import withRedux from '../mixins/with-redux'
 import { toggleTodo, removeTodo } from '../actions'
@@ -37,4 +36,4 @@ TodoItem.markup = function(todo) {
     return Mustache.render('<li data-id="{{ id }}"><span class="{{#completed}}line-through{{/completed}}">{{ name }}</span> <i>&#10007;</i></li>', todo);
 };
 
-export default TodoItem;
+export default TodoItem

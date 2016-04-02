@@ -1,4 +1,3 @@
-import flight from 'flightjs'
 import withRedux from '../mixins/with-redux';
 import TodoItem from './TodoItem'
 import includes from 'lodash.includes'
