@@ -1,6 +1,4 @@
-import AddTodoForm from './components/AddTodoForm'
-import TodoList from './components/TodoList'
-import Loader from './components/Loader'
+import { AddTodoForm, TodoList, Loader } from './components';
 
 Loader.attachTo('div.dimmer');
 AddTodoForm.attachTo('form');

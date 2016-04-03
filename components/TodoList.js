@@ -1,8 +1,8 @@
-import withRedux from '../mixins/with-redux'
-import TodoItem from './TodoItem'
+import { TodoItem } from '.'
 import includes from 'lodash.includes'
 import without from 'lodash.without'
 import { receiveTodos } from '../actions/index'
+import withRedux from '../mixins/with-redux'
 import withLocalStorage from '../mixins/with-local-storage'
 
 export default flight.component(function () {
