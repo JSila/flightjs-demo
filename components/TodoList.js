@@ -18,6 +18,7 @@ export default flight.component(function () {
                 receiveTodos(todos)
             );
         }
+        this.trigger(document, 'hideLoader');
     };
     this.after('initialize', function() {
         this.on(document, 'removeTodo', this.removeId);
