@@ -1,12 +1,15 @@
 import assign from 'lodash.assign'
-
-var nextId = 0;
+import uuid from "node-uuid"
 
 const todos = (state = [], action) => {
     switch (action.type) {
     case 'todos.add':
-        action.todo.id = nextId++;
-        return [...state, action.todo];
+        let todo = {
+            name: action.name,
+            id: uuid.v1(),
+            completed: false
+        }
+        return [...state, todo];
     case 'todos.remove':
         return state.filter((t) => t.id != action.id);
     case 'todos.toggle':
@@ -19,6 +22,8 @@ const todos = (state = [], action) => {
                 return t;
             }
         });
+    case 'todos.getAll':
+        return action.todos;
     default:
         return state
     }

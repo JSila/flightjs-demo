@@ -3,42 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title>Flight demo</title>
+        <link rel="stylesheet" href="//oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.css">
         <style>
+            body {
+                background-color: #fafafa;
+            }
             .line-through {
                 text-decoration: line-through;
             }
-            i {
-                display: none;
+            form {
+                text-align: center;
+            }
+            .container {
+                margin-top: 20px;
+            }
+            .text.center {
+                text-align: center;
+            }
+            .todo-item i {
                 cursor: pointer;
+                visibility: hidden;
             }
-            li:hover i {
-                display: inline;
-            }
-            i:hover {
-                font-weight: bold;
-            }
-            label {
-                display: block;
-            }
-            .form-group {
-                margin: 5px 0;
+            .todo-item:hover i {
+                visibility: visible;
             }
         </style>
     </head>
     <body>
-        <h1>Todo App</h1>
-        <hr>
-        <form>
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input autocomplete="off" id="name" type="text">
+        <div class="ui container">
+            <header class="text center">
+                <h1 class="ui center aligned icon header">
+                    <i class="circular write icon"></i>
+                    Todo App
+                </h1>
+            </header>
+
+            <div class="ui divider"></div>
+
+            <form>
+                <div class="ui labeled action input">
+                    <div class="ui label">What are you going to do today?</div>
+                    <input autocomplete="off" id="name" type="text" placeholder="Type here...">
+                    <div class="ui primary button">Add</div>
+                </div>
+            </form>
+
+            <div class="ui divider"></div>
+
+            <main class="ui compact segments"></main>
+
+<!--
+            <div class="ui active dimmer">
+                <div class="ui indeterminate text loader">Loading saved todos</div>
             </div>
-            <div class="form-group">
-                <button id="btn">Add</button>
-            </div>
-        </form>
-        <div>
-            <ul></ul>
+-->
         </div>
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script defer src="http://flightjs.github.io/release/latest/flight.min.js"></script>

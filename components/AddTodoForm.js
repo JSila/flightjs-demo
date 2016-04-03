@@ -14,11 +14,13 @@ export default flight.component(function() {
 
     this.submit = function(event) {
         event.preventDefault();
-        let todo = {
-            name: this.getTodoName(),
-            completed: false
-        };
-        this.store.dispatch(addTodo(todo));
+        let name = this.getTodoName();
+        if(!name.trim()) {
+            return;
+        }
+        this.store.dispatch(
+            addTodo(name)
+        );
     };
 
     this.after('initialize', function() {

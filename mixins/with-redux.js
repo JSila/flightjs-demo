@@ -6,7 +6,7 @@ function withRedux() {
         store.subscribe(function() {
             callback(store.getState());
         })
-    }
+    };
 
     this.store.dispatch = function(action) {
         store.dispatch(action);

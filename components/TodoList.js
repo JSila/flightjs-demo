@@ -1,7 +1,9 @@
-import withRedux from '../mixins/with-redux';
+import withRedux from '../mixins/with-redux'
 import TodoItem from './TodoItem'
 import includes from 'lodash.includes'
 import without from 'lodash.without'
+import { receiveTodos } from '../actions/index'
+import withLocalStorage from '../mixins/with-local-storage'
 
 export default flight.component(function () {
     var self = this;
@@ -9,11 +11,20 @@ export default flight.component(function () {
     this.removeId = function(event, data) {
         self.displayedTodoIds = without(self.displayedTodoIds, data.id);
     };
+    this.checkLocalStorage = function() {
+        let todos = this.localStorage.get('todos');
+        if(todos) {
+            this.store.dispatch(
+                receiveTodos(todos)
+            );
+        }
+    };
     this.after('initialize', function() {
         this.on(document, 'removeTodo', this.removeId);
 
         let $ul = this.$node;
         this.store.subscribe(function(state) {
+            self.localStorage.set('todos', state);
             state.forEach(function(todo) {
                 if (includes(self.displayedTodoIds, todo.id)) {
                     return;
@@ -23,5 +34,6 @@ export default flight.component(function () {
                 TodoItem.createAndAttachTo(todo, $ul);
             });
         });
+        this.checkLocalStorage();
     });
-}, withRedux)
+}, withRedux, withLocalStorage);

@@ -1,7 +1,7 @@
-export const addTodo = (todo) => {
+export const addTodo = (name) => {
     return {
         type: 'todos.add',
-        todo
+        name
     }
 };
 
@@ -16,5 +16,12 @@ export const toggleTodo = (id) => {
     return {
         type: 'todos.toggle',
         id
+    }
+};
+
+export const receiveTodos = (todos) => {
+    return {
+        type: 'todos.getAll',
+        todos
     }
 };

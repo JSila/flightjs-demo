@@ -13,7 +13,7 @@ let TodoItem = flight.component(function () {
         this.$name.toggleClass('line-through');
     };
     this.remove = function() {
-        let id = parseInt(this.node.dataset.id);
+        let id = this.node.dataset.id;
         this.store.dispatch(removeTodo(id));
         this.trigger(document, 'removeTodo', { id });
         this.teardownAndRemoveNode();
@@ -33,7 +33,7 @@ TodoItem.createAndAttachTo = function(todo, $ul) {
 };
 
 TodoItem.markup = function(todo) {
-    return Mustache.render('<li data-id="{{ id }}"><span class="{{#completed}}line-through{{/completed}}">{{ name }}</span> <i>&#10007;</i></li>', todo);
+    return Mustache.render('<div data-id="{{ id }}" class="ui segment todo-item"><i title="Remove todo from the list" class="ui right floating label">&#10007;</i><span class="{{#completed}}line-through{{/completed}}">{{ name }}</span></div>', todo);
 };
 
 export default TodoItem
