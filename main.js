@@ -1,5 +1,6 @@
-import { AddTodoForm, TodoList, Loader } from './components';
+import { AddTodoForm, TodoList, Loader, InfoMessage } from './components';
 
 Loader.attachTo('div.dimmer');
+InfoMessage.attachTo('.message');
 AddTodoForm.attachTo('form');
-TodoList.attachTo('main');
+TodoList.attachTo('#todos');

@@ -33,7 +33,7 @@ TodoItem.createAndAttachTo = function(todo, $ul) {
 };
 
 TodoItem.markup = function(todo) {
-    return Mustache.render('<div data-id="{{ id }}" class="ui segment todo-item"><i title="Remove todo from the list" class="ui right floating label">&#10007;</i><span class="{{#completed}}line-through{{/completed}}">{{ name }}</span></div>', todo);
+    return Mustache.render('<div data-id="{{ id }}" class="ui attached segment todo-item"><i title="Remove todo from the list" class="ui right floating label">&#10007;</i><span class="{{#completed}}line-through{{/completed}}">{{ name }}</span></div>', todo);
 };
 
 export default TodoItem

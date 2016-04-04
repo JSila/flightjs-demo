@@ -21,11 +21,15 @@
                 text-align: center;
             }
             .todo-item i {
-                cursor: pointer;
                 visibility: hidden;
             }
             .todo-item:hover i {
                 visibility: visible;
+            }
+
+            .todo-item i,
+            .todo-item span {
+                cursor: pointer;
             }
         </style>
     </head>
@@ -33,8 +37,8 @@
         <div class="ui container">
             <header class="text center">
                 <h1 class="ui center aligned icon header">
-                    <i class="circular write icon"></i>
-                    Todo App
+                    <i class="circular tasks icon"></i>
+                    Your todos are here
                 </h1>
             </header>
 
@@ -44,20 +48,33 @@
                 <div class="ui labeled action input">
                     <div class="ui label">What are you going to do today?</div>
                     <input autocomplete="off" id="name" type="text" placeholder="Type here...">
-                    <div class="ui primary button">Add</div>
+                    <button type="submit" class="ui primary button">Add</button>
                 </div>
             </form>
 
             <div class="ui divider"></div>
-
-            <main class="ui compact segments"></main>
+            <div class="ui two column centered grid">
+                <div class="column">
+                    <div class="ui attached info message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Quick tip!
+                        </div>
+                        <p>You can cross the todo by clicking the text or remove it by clicking associated close button which appears when your mouse is over todo.</p>
+                    </div>
+                    <div class="ui attached basic segment">
+                        <div class="ui segments" id="todos"></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="ui active dimmer">
-                <div class="ui indeterminate text loader">Loading saved todos if any</div>
+                <div class="ui indeterminate text loader">Loading saved todos...</div>
             </div>
         </div>
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script defer src="http://flightjs.github.io/release/latest/flight.min.js"></script>
+        <script defer src="http://oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.js"></script>
         <script defer src="bundle.js"></script>
     </body>
 </html>
